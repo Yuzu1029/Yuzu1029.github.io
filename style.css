@@ -386,3 +386,34 @@ body {
     90% { opacity: 0.8; }
     100% { transform: translateY(-110vh) translateX(30px) rotate(360deg); opacity: 0; }
 }
+
+/* --- スキルの小見出し（カテゴリー）をスッキリ見やすく！ --- */
+.skill-category {
+    margin-bottom: 25px; /* タグの下にしっかり余白を取って見やすく */
+}
+
+.skill-category:last-child {
+    margin-bottom: 5px;
+}
+
+/* ごちゃごちゃしたフチや影をなくし、スッキリとしたテキストに */
+.skill-category-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+/* 左側に可愛いピンクの丸（ドット）をつけてアクセントに */
+.skill-category-title::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--accent-pink);
+    margin-right: 10px;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1); /* ドットにだけさりげない影 */
+}
