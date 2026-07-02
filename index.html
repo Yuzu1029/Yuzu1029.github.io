@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオchan</title>
+    <title>渡辺柚菜のポートフォリオ</title>
+    <!-- 丸みのある可愛いフォントを読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap" rel="stylesheet">
     
+    <!-- CSSファイルの読み込み（GitHubでは同じフォルダに置くこと） -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ローディング画面 -->
 <div id="loading-screen">
     <div class="loading-content">
         <div class="loading-shape"></div>
@@ -19,8 +22,10 @@
     </div>
 </div>
 
+<!-- パーティクル（漂う図形）の背景 -->
 <div id="particles-container"></div>
 
+<!-- ヘッダー部分 -->
 <header class="site-header">
     <div class="header-inner">
         <h1 class="main-title">Portfolio</h1>
@@ -36,11 +41,13 @@
 
 <div class="container">
 
+    <!-- ページ1：自己紹介 -->
     <div id="page-about" class="page active">
         <div class="card-box">
             <h2>自己紹介</h2>
             <div class="profile-content">
                 <div class="profile-img-wrapper">
+                    <!-- GitHubにアップする際は、同じフォルダに kawaii.png などの画像を入れてください -->
                     <img src="kawaii.png" alt="渡辺柚菜">
                 </div>
                 <div class="profile-text">
@@ -55,7 +62,7 @@
         </div>
     </div>
 
-   <!-- ページ2：スキル・資格 -->
+    <!-- ページ2：スキル・資格 -->
     <div id="page-skills" class="page">
         <div class="card-box">
             <h2>スキル</h2>
@@ -123,6 +130,7 @@
         </div>
     </div>
 
+    <!-- ページ3：制作物 -->
     <div id="page-works" class="page">
         <div class="card-box works-container">
             <div class="works-grid">
@@ -152,21 +160,24 @@
         </div>
     </div>
 
+    <!-- ページ4：連絡先 -->
     <div id="page-contact" class="page">
         <div class="card-box">
             <h2>連絡先</h2>
-            <p style="margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8; font-weight: 500;">
+            <p class="contact-text">
                 ポートフォリオをご覧いただきありがとうございます！<br>
                 ご連絡は以下のメールアドレスよりお願いいたします。
             </p>
             <ul class="badge-list">
-                <li>メール: <a href="mailto:siw24010040@class.siw.ac.jp" style="color: var(--accent-blue); text-decoration: none; font-weight: 800; border-bottom: 2px dashed var(--accent-yellow); margin-left: 10px;">siw24010040@class.siw.ac.jp</a></li>
+                <!-- メールアドレスはご自身のものに変更してください -->
+                <li>メール: <a href="mailto:yuzuna-watanabe@example.com" class="contact-link">yuzuna-watanabe@example.com</a></li>
             </ul>
         </div>
     </div>
 
 </div>
 
+<!-- JavaScriptエリア（エラーを防ぐため外部に依存しないプレーンなJS） -->
 <script>
     // ページ切り替え機能
     function showPage(pageId, btnElement) {
@@ -176,23 +187,31 @@
         const buttons = document.querySelectorAll('.nav-btn');
         buttons.forEach(btn => btn.classList.remove('active'));
 
-        document.getElementById(pageId).classList.add('active');
-        btnElement.classList.add('active');
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+            btnElement.classList.add('active');
+        }
     }
 
-    // ローディングとパーティクル（図形）生成
+    // ローディング画面とパーティクルの制御
     window.addEventListener('load', () => {
         setTimeout(() => {
             const loader = document.getElementById('loading-screen');
-            loader.style.opacity = '0';
-            loader.style.visibility = 'hidden';
+            if (loader) {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }
         }, 1200);
 
         createParticles();
     });
 
+    // パーティクル（図形）の生成
     function createParticles() {
         const container = document.getElementById('particles-container');
+        if (!container) return;
+        
         const colors = ['#f7a8b8', '#d2ecf4', '#f2b749', '#ffffff'];
 
         for (let i = 0; i < 25; i++) {
@@ -211,11 +230,10 @@
             particle.style.animationDelay = `${delay}s`;
             particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
-            // 絵文字の代わりに、CSSで丸か角丸四角をランダムに作る
             if (Math.random() > 0.5) {
-                particle.style.borderRadius = '50%'; // 丸
+                particle.style.borderRadius = '50%';
             } else {
-                particle.style.borderRadius = '6px'; // 角丸四角
+                particle.style.borderRadius = '6px';
             }
 
             container.appendChild(particle);
