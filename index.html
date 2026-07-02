@@ -1,33 +1,208 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Home</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオchan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  <h1>portfolio site</h1>
-</header>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="works.html">Works</a>
-</nav>
-
-<div class="container">
-  <div class="card">
-    <h2>なんかかく</h2>
-    <p>なんかせつめいかく</p>
-  </div>
+<div id="loading-screen">
+    <div class="loading-content">
+        <div class="loading-shape"></div>
+        <div class="loading-text">Now Loading...</div>
+    </div>
 </div>
 
-<footer>
-  <p>© 2026 yuzuna</p>
-</footer>
+<div id="particles-container"></div>
+
+<header class="site-header">
+    <div class="header-inner">
+        <h1 class="main-title">Portfolio</h1>
+        
+        <nav class="nav-menu">
+            <button class="nav-btn active" onclick="showPage('page-about', this)">自己紹介</button>
+            <button class="nav-btn" onclick="showPage('page-skills', this)">スキル</button>
+            <button class="nav-btn" onclick="showPage('page-works', this)">制作物</button>
+            <button class="nav-btn" onclick="showPage('page-contact', this)">連絡先</button>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <div id="page-about" class="page active">
+        <div class="card-box">
+            <h2>自己紹介</h2>
+            <div class="profile-content">
+                <div class="profile-img-wrapper">
+                    <img src="kawaii.png" alt="渡辺柚菜">
+                </div>
+                <div class="profile-text">
+                    <h3>渡辺 柚菜</h3>
+                    <div class="sub-title">さいたまIT・WEB専門学校 高度専門士情報技術科 3年</div>
+                    <p>
+                        「自分の役割を正確に把握し、責任を持って最後までやり遂げる」愚直さと誠実さを大切にしています。<br><br>
+                        チーム開発などでは全体の調和を優先し、求められた仕様やタスクに対して丁寧かつ確実に実装を進めることで貢献してきました。目立つリーダーシップよりも、確かな技術と実行力でプロジェクトの土台を支え、信頼されるエンジニアを目指しています！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-skills" class="page">
+        <div class="card-box">
+            <h2>スキル</h2>
+            <div class="timeline-section">
+                <h3>1年生：ITとWebの基礎固め</h3>
+                <div>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+            <div class="timeline-section">
+                <h3>2年生：モダン技術と実践</h3>
+                <div>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Swift</span>
+                    <span class="skill-tag">Xcode</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">SQLite3</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Raspberry Pi</span>
+                </div>
+            </div>
+            <div class="timeline-section">
+                <h3>3年生〜現在：高度な専門性</h3>
+                <div>
+                    <span class="skill-tag">Swift</span>
+                    <span class="skill-tag">Xcode</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Premiere Pro</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box">
+            <h2>資格・免許</h2>
+            <ul class="badge-list">
+                <li>普通自動車第一種運転免許</li>
+                <li>MOS (Microsoft Office Specialist) Excel</li>
+                <li>MOS (Microsoft Office Specialist) Word</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="page-works" class="page">
+        <div class="card-box works-container">
+            <div class="works-grid">
+                <a href="#" target="_blank" class="work-card">
+                    <div class="work-img" style="background-image: url('work1.png');"></div>
+                    <div class="work-info">
+                        <div class="work-tags">
+                            <span class="work-tag">2年生</span>
+                            <span class="work-tag">Swift</span>
+                        </div>
+                        <h3>iOSアプリ「○○○○」</h3>
+                        <p>授業で作成したiOSアプリです。○○の課題を解決するために作成し、データの保存にはSQLiteを利用しました。（タップでデモへ）</p>
+                    </div>
+                </a>
+                <a href="#" target="_blank" class="work-card">
+                    <div class="work-img" style="background-image: url('work2.png');"></div>
+                    <div class="work-info">
+                        <div class="work-tags">
+                            <span class="work-tag">1年生</span>
+                            <span class="work-tag">Web制作</span>
+                        </div>
+                        <h3>Webサイト「○○○○」</h3>
+                        <p>はじめてJavaScriptで動きをつけたWebサイトです。デザインからコーディングまで一貫して行いました。</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-contact" class="page">
+        <div class="card-box">
+            <h2>連絡先</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8; font-weight: 500;">
+                ポートフォリオをご覧いただきありがとうございます！<br>
+                ご連絡は以下のメールアドレスよりお願いいたします。
+            </p>
+            <ul class="badge-list">
+                <li>メール: <a href="mailto:siw24010040@class.siw.ac.jp" style="color: var(--accent-blue); text-decoration: none; font-weight: 800; border-bottom: 2px dashed var(--accent-yellow); margin-left: 10px;">siw24010040@class.siw.ac.jp</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // ページ切り替え機能
+    function showPage(pageId, btnElement) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+
+        const buttons = document.querySelectorAll('.nav-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        document.getElementById(pageId).classList.add('active');
+        btnElement.classList.add('active');
+    }
+
+    // ローディングとパーティクル（図形）生成
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const loader = document.getElementById('loading-screen');
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+        }, 1200);
+
+        createParticles();
+    });
+
+    function createParticles() {
+        const container = document.getElementById('particles-container');
+        const colors = ['#f7a8b8', '#d2ecf4', '#f2b749', '#ffffff'];
+
+        for (let i = 0; i < 25; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            const size = Math.random() * 20 + 10;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 15 + 10;
+            const delay = Math.random() * 10;
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}vw`;
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // 絵文字の代わりに、CSSで丸か角丸四角をランダムに作る
+            if (Math.random() > 0.5) {
+                particle.style.borderRadius = '50%'; // 丸
+            } else {
+                particle.style.borderRadius = '6px'; // 角丸四角
+            }
+
+            container.appendChild(particle);
+        }
+    }
+</script>
 
 </body>
 </html>
