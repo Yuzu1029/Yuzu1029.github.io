@@ -3,7 +3,6 @@
 /* =========================================
    1. 基本設定（カラーパレットと全体）
    ========================================= */
-
 :root {
     --bg-base: #f9f6f0;        /* クリーム色 */
     --dot-color: #e4f3f8;      /* 背景の水玉の色 */
@@ -14,9 +13,8 @@
     --accent-blue: #4a90e2;    /* さわやかなブルー */
 }
 
-/* --- スクロールバーのカスタマイズ --- */
 ::-webkit-scrollbar {
-    width: 14px; /* 少し太めにして可愛く */
+    width: 14px;
 }
 ::-webkit-scrollbar-track {
     background: var(--bg-base);
@@ -24,32 +22,29 @@
 ::-webkit-scrollbar-thumb {
     background-color: var(--accent-yellow);
     border-radius: 10px;
-    border: 3px solid var(--bg-base); /* トラックの色と合わせてフチを作る */
+    border: 3px solid var(--bg-base);
 }
 
 body {
-    /* 水玉模様の背景 */
     background-color: var(--bg-base);
     background-image: 
         radial-gradient(var(--dot-color) 20%, transparent 20%),
         radial-gradient(var(--dot-color) 20%, transparent 20%);
     background-size: 30px 30px;
     background-position: 0 0, 15px 15px;
-    
     color: var(--text-main);
-    font-family: 'M PLUS Rounded 1c', sans-serif; /* 丸ゴシック */
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     margin: 0;
     padding: 0 20px 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden; /* 横揺れ防止 */
+    overflow-x: hidden; /* スマホで横揺れするのを防ぐ */
 }
 
 /* =========================================
    2. ヘッダーエリア
    ========================================= */
-
 .site-header {
     width: 100%;
     display: flex;
@@ -65,7 +60,6 @@ body {
     align-items: center;
 }
 
-/* --- メインタイトル --- */
 .main-title {
     color: #fff;
     font-size: 4.2rem;
@@ -77,7 +71,6 @@ body {
     line-height: 1;
 }
 
-/* --- メニューボタン --- */
 .nav-menu {
     display: flex;
     gap: 15px;
@@ -110,22 +103,25 @@ body {
     color: #fff;
 }
 
+/* スマホ用ヘッダー調整 */
 @media (max-width: 850px) {
-    .header-inner { flex-direction: column; gap: 25px; }
+    .header-inner { flex-direction: column; gap: 20px; }
     .main-title { font-size: 3.5rem; }
 }
-
+@media (max-width: 480px) {
+    .main-title { font-size: 2.8rem; letter-spacing: 2px; }
+    .nav-btn { padding: 10px 18px; font-size: 0.95rem; }
+    .site-header { padding: 20px 0 30px 0; }
+}
 
 /* =========================================
    3. メインコンテンツと共通スタイル
    ========================================= */
-
 .container {
     max-width: 800px;
     width: 100%;
 }
 
-/* ページ切り替えアニメーション */
 .page {
     display: none;
     animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
@@ -137,7 +133,6 @@ body {
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* --- 共通の角丸・影付きボックス --- */
 .card-box {
     background-color: var(--box-bg);
     border: 3px solid var(--text-main);
@@ -148,11 +143,10 @@ body {
     position: relative;
 }
 
-/* ボックスのタイトル（リボン風） */
 .card-box h2 {
     color: var(--text-main);
     font-size: 1.6rem;
-    margin-top: -55px; /* ボックスの上にはみ出させる */
+    margin-top: -55px;
     margin-bottom: 25px;
     background-color: #fff;
     border: 3px solid var(--text-main);
@@ -163,14 +157,11 @@ body {
     transform: rotate(-1deg);
 }
 
-/* 制作物ページは外側の背景を消す */
-.works-container {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
+/* スマホ用の箱のサイズ調整 */
+@media (max-width: 600px) {
+    .card-box { padding: 25px 20px; border-radius: 20px; }
+    .card-box h2 { font-size: 1.3rem; margin-top: -42px; padding: 8px 20px; }
 }
-
 
 /* =========================================
    4. 各ページ専用のスタイル
@@ -184,33 +175,36 @@ body {
 }
 
 .profile-img-wrapper {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 4px dashed var(--text-main);
-    background-color: #fff; /* 丸の中の色を白（#fff）に変更しました */
+    background-color: #fff;
     display: flex;
     justify-content: center;
-    align-items: center; /* 画像をど真ん中に配置します */
+    align-items: center;
     box-shadow: 6px 6px 0px var(--accent-blue);
     flex-shrink: 0;
     position: relative;
 }
 
 .profile-img-wrapper img {
-    width: 115%; /* 115%から90%に変更し、画像を少し小さめにしました */
+    width: 90%;
     height: auto;
     object-fit: contain;
     position: relative;
-    z-index: 10;
+    z-index: 10; /* 画像を手前に出す */
 }
 
 .profile-text h3 { margin: 0 0 5px 0; font-size: 2rem; color: var(--accent-blue); }
-.profile-text .sub-title { font-size: 1rem; color: var(--text-main); margin-bottom: 15px; font-weight: 800; background: #fff; display: inline-block; padding: 5px 10px; border-radius: 10px; border: 2px solid var(--text-main); }
-.profile-text p { line-height: 1.8; font-size: 1.05rem; font-weight: 500; text-align: left; }
+.profile-text .sub-title { font-size: 0.95rem; color: var(--text-main); margin-bottom: 15px; font-weight: 800; background: #fff; display: inline-block; padding: 5px 10px; border-radius: 10px; border: 2px solid var(--text-main); }
+.profile-text p { line-height: 1.8; font-size: 1.05rem; font-weight: 500; text-align: left; margin: 0; }
 
+/* スマホ時の縦並び化 */
 @media (max-width: 650px) {
-    .profile-content { flex-direction: column; text-align: center; }
+    .profile-content { flex-direction: column; text-align: center; gap: 20px; }
+    .profile-text p { text-align: left; font-size: 1rem; }
+    .profile-img-wrapper { width: 150px; height: 150px; }
 }
 
 /* --- ページ2：スキル・資格 --- */
@@ -230,6 +224,29 @@ body {
     display: inline-block;
 }
 
+/* スッキリさせたスキルカテゴリー */
+.skill-category { margin-bottom: 25px; }
+.skill-category:last-child { margin-bottom: 5px; }
+
+.skill-category-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+.skill-category-title::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--accent-pink);
+    margin-right: 10px;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
 .skill-tag {
     display: inline-block;
     background-color: var(--bg-base);
@@ -242,7 +259,6 @@ body {
     box-shadow: 2px 2px 0px var(--accent-yellow);
 }
 
-/* リストのデザイン */
 .badge-list { list-style: none; padding: 0; margin: 0; }
 .badge-list li { 
     background: #fff; 
@@ -255,9 +271,8 @@ body {
     box-shadow: 3px 3px 0px var(--accent-pink);
     display: flex;
     align-items: center;
+    word-break: break-all; /* スマホでURLなどがはみ出さないように */
 }
-
-/* 絵文字の代わりに、可愛いドットをCSSで作成してリストの先頭に付ける */
 .badge-list li::before { 
     content: "";
     display: inline-block;
@@ -267,10 +282,25 @@ body {
     border: 2px solid var(--text-main);
     border-radius: 50%;
     margin-right: 12px;
-    box-shadow: 2px 2px 0px var(--accent-pink); /* ドットにも影をつける */
+    box-shadow: 2px 2px 0px var(--accent-pink);
+    flex-shrink: 0; /* 丸が潰れないように */
+}
+
+/* スマホ用リスト調整 */
+@media (max-width: 600px) {
+    .timeline-section { padding: 15px; }
+    .skill-tag { font-size: 0.85rem; padding: 4px 10px; }
+    .badge-list li { font-size: 0.9rem; padding: 10px 15px; }
 }
 
 /* --- ページ3：制作物 --- */
+.works-container {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
 .works-grid { display: flex; flex-direction: column; gap: 30px; }
 .work-card {
     background-color: #fff; border-radius: 20px; overflow: hidden;
@@ -298,23 +328,44 @@ body {
 .work-tags { margin-bottom: 15px; }
 .work-tag { font-size: 0.85rem; background-color: var(--accent-yellow); color: #fff; border: 2px solid var(--text-main); padding: 5px 10px; border-radius: 8px; margin-right: 8px; font-weight: 800; }
 
+/* スマホ用制作物カード縦並び */
 @media (max-width: 600px) {
     .work-card { flex-direction: column; }
-    .work-img { width: 100%; border-right: none; border-bottom: 3px solid var(--text-main); }
-    .work-info { width: 100%; box-sizing: border-box; }
+    .work-img { width: 100%; border-right: none; border-bottom: 3px solid var(--text-main); min-height: 180px; }
+    .work-info { width: 100%; box-sizing: border-box; padding: 20px; }
 }
 
+/* --- ページ4：連絡先 --- */
+.contact-text {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 500;
+}
+.contact-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 800;
+    border-bottom: 2px dashed var(--accent-yellow);
+    margin-left: 5px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    word-break: break-all; /* スマホでメアドが折り返せるようにする */
+}
+.contact-link:hover {
+    color: var(--accent-pink);
+    border-color: var(--accent-pink);
+}
+@media (max-width: 600px) {
+    .contact-text { font-size: 1rem; }
+}
 
 /* =========================================
-   5. ローディングとパーティクル（絵文字なし版）
+   5. ローディングとパーティクル
    ========================================= */
-
-/* --- ローディング画面全体 --- */
 #loading-screen {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    /* 背景色も水玉にしておく */
     background-color: var(--bg-base);
     background-image: 
         radial-gradient(var(--dot-color) 20%, transparent 20%),
@@ -328,11 +379,8 @@ body {
     transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
 }
 
-.loading-content {
-    text-align: center;
-}
+.loading-content { text-align: center; }
 
-/* --- 回転するポップな四角形（CSSで描画） --- */
 .loading-shape {
     width: 45px;
     height: 45px;
@@ -350,7 +398,6 @@ body {
     100% { transform: translateY(0) rotate(360deg); }
 }
 
-/* 文字の装飾 */
 .loading-text {
     font-size: 2rem;
     font-weight: 800;
@@ -359,15 +406,17 @@ body {
     -webkit-text-stroke: 1px #fff;
     text-shadow: 3px 3px 0px var(--accent-pink);
 }
+@media (max-width: 480px) {
+    .loading-text { font-size: 1.5rem; }
+    .loading-shape { width: 35px; height: 35px; }
+}
 
-
-/* --- パーティクル（漂う図形） --- */
 #particles-container {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    pointer-events: none; /* クリックの邪魔にならないようにする */
-    z-index: -1;          /* 他のコンテンツの後ろに配置 */
+    pointer-events: none;
+    z-index: -1;
     overflow: hidden;
 }
 
@@ -385,35 +434,4 @@ body {
     10% { opacity: 0.8; }
     90% { opacity: 0.8; }
     100% { transform: translateY(-110vh) translateX(30px) rotate(360deg); opacity: 0; }
-}
-
-/* --- スキルの小見出し（カテゴリー）をスッキリ見やすく！ --- */
-.skill-category {
-    margin-bottom: 25px; /* タグの下にしっかり余白を取って見やすく */
-}
-
-.skill-category:last-child {
-    margin-bottom: 5px;
-}
-
-/* ごちゃごちゃしたフチや影をなくし、スッキリとしたテキストに */
-.skill-category-title {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-}
-
-/* 左側に可愛いピンクの丸（ドット）をつけてアクセントに */
-.skill-category-title::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--accent-pink);
-    margin-right: 10px;
-    box-shadow: 2px 2px 0px rgba(0,0,0,0.1); /* ドットにだけさりげない影 */
 }
