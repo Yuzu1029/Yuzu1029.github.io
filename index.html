@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポートフォリオ</title>
-    <!-- 丸みのある可愛いフォントを読み込み -->
+    <title>渡辺柚菜のポートフォリオ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap" rel="stylesheet">
     
-    <!-- CSSファイルの読み込み（GitHubでは同じフォルダに置くこと） -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ローディング画面 -->
 <div id="loading-screen">
     <div class="loading-content">
         <div class="loading-shape"></div>
@@ -22,10 +19,8 @@
     </div>
 </div>
 
-<!-- パーティクル（漂う図形）の背景 -->
 <div id="particles-container"></div>
 
-<!-- ヘッダー部分 -->
 <header class="site-header">
     <div class="header-inner">
         <h1 class="main-title">Portfolio</h1>
@@ -41,18 +36,16 @@
 
 <div class="container">
 
-    <!-- ページ1：自己紹介 -->
     <div id="page-about" class="page active">
         <div class="card-box">
             <h2>自己紹介</h2>
             <div class="profile-content">
                 <div class="profile-img-wrapper">
-                    <!-- GitHubにアップする際は、同じフォルダに kawaii.png などの画像を入れてください -->
-                    <img src="kawaii.png" alt="しゃしん">
+                    <img src="kawaii.png" alt="渡辺柚菜">
                 </div>
                 <div class="profile-text">
                     <h3>渡辺 柚菜</h3>
-                    <div class="sub-title">とってもかしこい学校 高度専門士情報技術科 3年</div>
+                    <div class="sub-title">さいたまIT・WEB専門学校 高度専門士情報技術科 3年</div>
                     <p>
                         「自分の役割を正確に把握し、責任を持って最後までやり遂げる」愚直さと誠実さを大切にしています。<br><br>
                         チーム開発などでは全体の調和を優先し、求められた仕様やタスクに対して丁寧かつ確実に実装を進めることで貢献してきました。目立つリーダーシップよりも、確かな技術と実行力でプロジェクトの土台を支え、信頼されるエンジニアを目指しています！
@@ -62,10 +55,9 @@
         </div>
     </div>
 
-    <!-- ページ2：スキル・資格 -->
     <div id="page-skills" class="page">
         <div class="card-box">
-            <h2>スキル</h2>
+            <h2>学んだ内容</h2>
             
             <div class="timeline-section">
                 <h3>１年生</h3>
@@ -135,6 +127,7 @@
         <div class="card-box works-container">
             <div class="works-grid">
                 
+                <!-- ワーク1：基本情報アプリ -->
                 <a href="https://siw-career-design.github.io/subjectB/" target="_blank" class="work-card">
                     <div class="work-img" style="background-image: url('work1.png');"></div>
                     <div class="work-info">
@@ -144,28 +137,38 @@
                         </div>
                         <h3>基本情報技術者試験対策アプリ</h3>
                         <p>
-                            基本情報技術者試験の合格を目的としたチーム制作アプリです。<br>
+                            基本情報技術者試験の合格を目的としたチーム制作アプリです。
                             創造性と独自性を大切にしつつ、「使い心地の良さ」と「モチベーション維持」にこだわって設計しました。ぜひ触ってみてください！
                         </p>
                     </div>
                 </a>
 
-                <a href="#" target="_blank" class="work-card">
+                <!-- ワーク2：ブラックジャック -->
+                <a href="https://yuzu1029.github.io/blackjack/" target="_blank" class="work-card">
                     <div class="work-img" style="background-image: url('work2.png');"></div>
                     <div class="work-info">
                         <div class="work-tags">
-                            <span class="work-tag">1年生</span>
-                            <span class="work-tag">Web制作</span>
+                            <span class="work-tag">2年生</span>
+                            <span class="work-tag">JavaScript</span>
                         </div>
-                        <h3>Webサイト「○○○○」</h3>
-                        <p>はじめてJavaScriptで動きをつけたWebサイトです。デザインからコーディングまで一貫して行いました。</p>
+                        <h3>ブラックジャックゲーム</h3>
+                        <p>
+                            2年生の時にJavaScript、HTML、CSSを使って制作した、ブラウザ上で実際に遊べるカードゲームです。
+                            制作にあたって「Google Anti-Gravity」のエフェクトに初めて挑戦し、無重力のような遊び心のあるギミックと、しっかりとしたトランプの勝敗判定ロジックを両立させました。
+                        </p>
                     </div>
                 </a>
+                
             </div>
+
+            <!-- ▼ ここを追加しました！ ▼ -->
+            <div class="updating-status">
+                <span class="updating-text">COMING SOON... 随時更新中！</span>
+            </div>
+
         </div>
     </div>
 
-    <!-- ページ4：連絡先 -->
     <div id="page-contact" class="page">
         <div class="card-box">
             <h2>連絡先</h2>
@@ -174,7 +177,6 @@
                 ご連絡は以下のメールアドレスよりお願いいたします。
             </p>
             <ul class="badge-list">
-                <!-- メールアドレスはご自身のものに変更してください -->
                 <li>メール: <a href="mailto:siw24010040@class.siw.ac.jp" class="contact-link">siw24010040@class.siw.ac.jp</a></li>
             </ul>
         </div>
@@ -182,9 +184,7 @@
 
 </div>
 
-<!-- JavaScriptエリア（エラーを防ぐため外部に依存しないプレーンなJS） -->
 <script>
-    // ページ切り替え機能
     function showPage(pageId, btnElement) {
         const pages = document.querySelectorAll('.page');
         pages.forEach(page => page.classList.remove('active'));
@@ -199,7 +199,6 @@
         }
     }
 
-    // ローディング画面とパーティクルの制御
     window.addEventListener('load', () => {
         setTimeout(() => {
             const loader = document.getElementById('loading-screen');
@@ -212,7 +211,6 @@
         createParticles();
     });
 
-    // パーティクル（図形）の生成
     function createParticles() {
         const container = document.getElementById('particles-container');
         if (!container) return;
